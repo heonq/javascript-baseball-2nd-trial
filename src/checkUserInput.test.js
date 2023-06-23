@@ -17,4 +17,11 @@ describe("사용자의 입력값이 유효한지 테스트한다.",()=>{
             return checkUserInput(answer);
         })).toThrow(Error(ERROR_MESSAGE.DUPLICATED));
     })
+    test("1부터9까지의 숫자가 아닌 값이 입력된 경우 에러 발생",()=>{
+        const answers=["abc","!@#","012"];
+
+        expect(()=>answers.forEach((answer)=>{
+            return checkUserInput(answer);
+        })).toThrow(Error(ERROR_MESSAGE.NOTANUMBER));
+    })
 })
