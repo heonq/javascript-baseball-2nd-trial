@@ -8,6 +8,7 @@ class Game {
 
     play(){
         this.printIntro();
+        this.getUserInput(GAME_MESSAGE.INPUT);
     }
 
     printIntro(){
@@ -23,6 +24,13 @@ class Game {
             }
         }
         return computer;
+    }
+
+    getUserInput(message){
+        MissionUtils.Console.readLine(message,(answer)=>{
+            this.user = answer;
+            this.getUserInput(message);
+        })
     }
 }
 
