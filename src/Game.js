@@ -1,5 +1,6 @@
 const MissionUtils = require("@woowacourse/mission-utils");
-const {GAME_MESSAGE} = require("./constants")
+const {GAME_MESSAGE} = require("./constants.js");
+const checkUserInput = require("./checkUserInput.js");
 
 class Game {
     constructor() {
@@ -29,6 +30,7 @@ class Game {
     getUserInput(message){
         MissionUtils.Console.readLine(message,(answer)=>{
             this.user = answer;
+            checkUserInput(this.user);
             this.getUserInput(message);
         })
     }
