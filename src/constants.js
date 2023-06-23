@@ -3,10 +3,26 @@ const GAME_MESSAGE = {
     INPUT : "숫자를 입력해주세요 : ",
 }
 
+const GAME_RESULT = {
+    BALL : {
+        0 : "",
+        1 : "1볼",
+        2 : "2볼",
+        3 : "3볼",
+    },
+    STRIKE : {
+        0 : "낫싱",
+        1 : "1스트라이크",
+        2 : "2스트라이크",
+        3 : "3스트라이크",
+    },
+    CORRECT : "3개의 숫자를 모두 맞히셨습니다! 게임 종료"
+}
+
 const ERROR_MESSAGE = {
     THREE_DIGITS : "3자리의 숫자를 입력해주세요.",
     DUPLICATED : "중복되지 않은 3자리의 숫자를 입력해주세요.",
     NOTANUMBER : "1부터 9까지 숫자로 이루어진 3자리 숫자를 입력해주세요.",
 }
 
-module.exports = {GAME_MESSAGE,ERROR_MESSAGE};
+module.exports = {GAME_MESSAGE,GAME_RESULT,ERROR_MESSAGE};
