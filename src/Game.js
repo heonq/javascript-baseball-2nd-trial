@@ -1,29 +1,19 @@
 const MissionUtils = require("@woowacourse/mission-utils");
 const {GAME_MESSAGE,GAME_RESULT, ERROR_MESSAGE} = require("./constants.js");
 const checkUserInput = require("./checkUserInput.js");
+const {randomGenerateNumber,print} = require("./util.js");
 
 class Game {
 
     play(){
         this.printIntro();
-        this.computer = this.randomGenerateNumber();
+        this.computer = randomGenerateNumber();
         this.initCount();
         this.getUserInput(GAME_MESSAGE.INPUT);
     }
 
     printIntro(){
         print(GAME_MESSAGE.INTRO);
-    }
-    
-    randomGenerateNumber() {
-        const computer = [];
-        while (computer.length < 3) {
-        const number = MissionUtils.Random.pickNumberInRange(1, 9);
-            if (!computer.includes(number)) {
-                computer.push(number);
-            }
-        }
-        return computer;
     }
 
     getUserInput(message){
@@ -53,8 +43,6 @@ class Game {
     printGameResult(){
         this.strike = this.countStrike();
         this.ball = this.countBall();
-        print(this.computer);
-        print(this.user);
         if(this.strike===0&&this.ball>0){
             return print(GAME_RESULT.BALL[this.ball]);
         }
@@ -78,9 +66,7 @@ class Game {
         if(this.user==="2") MissionUtils.Console.close();
         else throw new Error(ERROR_MESSAGE.ONEORTWO);
     }
+}
 
-    }
-
-const print=(message)=>MissionUtils.Console.print(message);
 
 module.exports = Game;
