@@ -1,3 +1,5 @@
+const MissionUtils = require("@woowacourse/mission-utils");
+
 const randomGenerateNumber=()=> {
     const computer = [];
     while (computer.length < 3) {
